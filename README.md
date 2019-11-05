@@ -8,4 +8,10 @@ spring cloud 与 Docker 练习
 6、Feign声明式REST调用（添加依赖openfeign-启动类上添加@EnableFeignClients-编写 Feign Client @FeignClient(name = "microservice-provider-user")）
 7、Hystrix容错处理（引入依赖-在启动类上添加@EnableCircuitBreaker注解-在mapping上添加@HystrixCommand(fallbackMethod = "findByIdFallback")-编写fallbackMethod）
 8、Zuul网关（添加依赖-在启动类上面添加注解@EnableZuulProxy-编写application.yml）
-9、Spring Cloud Config配置管理（创建 Git 仓库在仓库根目录存放一些配置文件）
+9、Spring Cloud Config配置管理（创建Git仓库在仓库根目录存放一些配置文件-引入ConfigServer依赖-启动主类上添加注解@EnableConfigServer-编写application.yml-指定cloud.config.server.git.uri)（引入Config Client的依赖-在resources添加配置文件bootstrap.yml-演示类）
+10、Sleuth与Zipkin结合图形化展示追踪（引入Sleuth依赖-可以修改application.yml查看更多Sleuth相关的日志-将Sleuth采集到的数据发送给Zipkin服务端Zipkin 分析之后展示在界面上-添加依赖-编写application.yml-下载zipkin-server-2.12.9-exec.jar 运行java -jar 访问http://localhost:9411）
+11、Docker的常用命令docker search - docker pull -docker images-docker run-docker ps
+12、微服务运行在Docker上（Dockerfile及常用命令-引入打包Docker镜像的maven插件-项目根目录创建Dockerfile文件-服务打包成Jar包运行Docker构建镜像-run镜像-访问测试地址）
+13、Docker Compose编排微服务 （在项目根目录添加docker-compose.yml文件-maven 构建项目和 Docker 镜像-docker-compose up运行）
+14、Compose编排多个微服务（构建多个微服务镜像-编写docker-compose.yml文件通过depends_on和links的方式将三个服务关联-使用docker-compose up或者docker-compose stop启动或者关闭服务）
+15、Docker-Compose部署一个双节点的Eureka集群（修改application.yml来添加配置，让不同 Eureka 节点都互相知道对方-构建 Eureka 镜像-编写docker-compose.yml）
